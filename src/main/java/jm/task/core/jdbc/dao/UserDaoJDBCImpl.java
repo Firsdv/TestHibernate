@@ -99,6 +99,7 @@ public class UserDaoJDBCImpl implements UserDao {
             }
         }
         return users;
+
     }
     public void cleanUsersTable() {
         String sql = "TRUNCATE TABLE user";
@@ -111,15 +112,15 @@ public class UserDaoJDBCImpl implements UserDao {
             e.printStackTrace();
         }
     }
-        public void closeConnection () {
-            try {
-                if (getConnection() != null && !getConnection().isClosed()) {
-                    getConnection().close();
-                    System.out.println("Connection closed.");
-                }
-            } catch (SQLException e) {
-                System.err.println("Error closing connection.");
-                e.printStackTrace();
+    public void closeConnection () {
+        try {
+            if (getConnection() != null && !getConnection().isClosed()) {
+                getConnection().close();
+                System.out.println("Connection closed.");
             }
+        } catch (SQLException e) {
+            System.err.println("Error closing connection.");
+            e.printStackTrace();
         }
     }
+}
